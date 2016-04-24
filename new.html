@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Crone App</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="css/custom.css"/>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/cron_edit.js"></script> 
+        <script src="js/submitFunction.js"></script>       
+    </head>
+    <body>   
+        <h1>CRON EDITOR</h1><br/>
+        <a href="http://localhost:8081/" class="btn btn-success">Home page</a>
+        <a href="http://localhost:8081/new" class="btn btn-success">New cron formula</a>  <br>  <br>
+        <form id="cron_command" action="http://localhost:8081/new" method="POST">
+            <div class="form-group">
+                <label for="execute">Execute</label>
+                <input value="date >> ~/cron.log" id="execute" type="text" name="command">
+            </div>
+        </form>
+        <form id="form_at">
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" name="submit" value="Add"/> 
+                <span>At</span> 
+                <input id="at_value" type="number" name="value" value="1" min="1" max="60"/>
+                <select id="at_period" name="period">
+                    <option value="m">minutes</option>
+                    <option value="h">hours</option>
+                    <option value="d">days</option>
+                    <option value="w">weekdays</option>
+                    <option value="M">months</option>
+                </select>
+            </div>
+        </form>
+        <form id="form_range">
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" name="submit" value="Add"/> 
+                <span>From</span> 
+                <input id="range_from" type="number" name="from" value="1" min="1" max="60"/>
+                <span>to</span> 
+                <input id="range_to" type="number" name="to" value="2" min="1" max="60"/>
+                <select name="range_period" id="range_period">
+                    <option value="m">minutes</option>
+                    <option value="h">hours</option>
+                    <option value="d">days</option>
+                    <option value="w">weekdays</option>
+                    <option value="M">months</option>
+                </select>
+            </div>
+        </form>
+        <form id="form_every">
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" name="submit" value="Add"/> 
+                <span>Every</span> 
+                <input id="every_value" type="number" name="value" value="1" min="1" max="60"/>
+                <select name="every_period" id="every_period">
+                    <option value="m">minutes</option>
+                    <option value="h">hours</option>
+                    <option value="d">days</option>
+                    <option value="w">weekdays</option>
+                    <option value="M">months</option>
+                </select>
+
+            </div>
+        </form>
+        <div class="form-group">
+            <span>Cron expression:</span> 
+            <input id="cron_expr" type="text" name="cron_expr" form="cron_command" value="* * * * *" readonly/>
+            <button class="btn btn-primary" id="btn_reset">Reset</button>
+            <br style="clear:both"/> <br style="clear:both"/>
+            <input class="btn btn-primary" type="submit" name="cron_submit" value="Install to cron" form="cron_command"/> 
+        </div>
+
+        <br style="clear:both"/>
+        <br style="clear:both"/>
+        <br/><br/>
+        <h6>Kamil Szydło, Karol Ludwikowski - projekt ASK</h6>
+
+
+
+    </body>
+</html>
+
+<!--
+old code
+
+  <form id="cron_command" action="http://localhost:8081/" method="POST">
+            Execute <input placeholder="example: date >> ~/cron.log" type="text" name="command">
+        </form>
+        <br>
+        <form id="form_at">
+            <input type="submit" name="submit" value="Add"/> 
+            At <input id="at_value" type="number" name="value" value="1" min="1" max="60"/>
+            <select id="at_period" name="period">
+                <option value="m">minutes</option>
+                <option value="h">hours</option>
+                <option value="d">days</option>
+                <option value="w">weekdays</option>
+                <option value="M">months</option>
+            </select>
+        </form>
+        <form id="form_range">
+            <input type="submit" name="submit" value="Add"/> 
+            From <input id="range_from" type="number" name="from" value="1" min="1" max="60"/>
+            to <input id="range_to" type="number" name="to" value="2" min="1" max="60"/>
+            <select name="range_period">
+                <option value="m">minutes</option>
+                <option value="h">hours</option>
+                <option value="d">days</option>
+                <option value="w">weekdays</option>
+                <option value="M">months</option>
+            </select>
+        </form>
+        <form id="form_every">
+            <input type="submit" name="submit" value="Add"/> 
+            Every <input id="every_value" type="number" name="value" value="1" min="1" max="60"/>
+            <select name="every_period">
+                <option value="m">minutes</option>
+                <option value="h">hours</option>
+                <option value="d">days</option>
+                <option value="w">weekdays</option>
+                <option value="M">months</option>
+            </select>
+        </form>
+        <br/>
+        Cron expression: <input id="cron_expr" type="text" name="cron_expr" form="cron_command" value="* * * * *" readonly/>
+        <button id="btn_reset">Reset</button>
+        <br> 
+        <input type="submit" name="cron_submit" value="submit" form="cron_command"/> 
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>-->

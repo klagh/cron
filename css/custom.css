@@ -1,0 +1,37 @@
+body {
+    margin: 15px auto;
+    margin-top: 0;
+    width:940px;
+    background-color: silver;
+    color:black;
+    font-size: 15px;
+    font-weight: bold;
+}
+input, select {
+    padding: 5px 10px;
+    background-image: linear-gradient(to bottom, #337ab7 0px, #265a88 100%);
+    background-repeat: repeat-x;
+    border-color: #245580; 
+    color:white;
+    border: 0;
+}
+span {
+    padding: 0 10px;
+}
+.form-group {
+    margin-top:5px;
+}
+h1 {
+    background-color: white;
+    color:black;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    margin-top: 0;
+}
+h6 {
+    background-color: white;
+    color:black;
+    text-align: center;
+    padding: 2px 0;
+}
